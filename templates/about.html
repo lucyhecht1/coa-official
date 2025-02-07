@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %}About - Yavneh Celebration of the Arts{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="about-hero">
+    <div class="container text-center">
+        <h1>About</h1>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="split-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/davids.png') }}" alt="About Us" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="text-container">
+                    <h2>About Yavneh Celebration of the Arts</h2>
+                    <p>
+                        The Yavneh Celebration of the Arts is a community event that brings together creativity, 
+                        talent, and passion. Our mission is to provide a platform for artists, performers, and creators 
+                        of all ages to showcase their work and inspire others.
+                    </p>
+                    <p>
+                        Since its inception, the event has grown into a cherished tradition, celebrating unity through 
+                        artistic expression.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Statement Section -->
+<section class="split-section mission-split">
+    <div class="container-fluid">
+        <div class="row flex-row-reverse">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/mission.png') }}" alt="Mission" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="text-container">
+                    <h2>Our Mission</h2>
+                    <p>
+                        Our mission is to foster creativity and inspire connection through artistic expression. We 
+                        strive to create a supportive space where individuals of all ages can share their talent and 
+                        passion for the arts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- History Section -->
+<section class="split-section history-split">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/founders.png') }}" alt="History" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="text-container">
+                    <h2>Our History</h2>
+                    <p>
+                        Founded in 2025, the Yavneh Celebration of the Arts began as a vision to create a welcoming space
+                        for artists and performers to connect and share their work. Over the years, it has evolved into 
+                        a beloved annual tradition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
