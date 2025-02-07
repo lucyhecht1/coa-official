@@ -1,0 +1,179 @@
+/* HOMEPAGE */ 
+
+/* Background image with full coverage */
+.homepage-background {
+    background: url('../images/homepage.png') no-repeat center center/cover;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Semi-transparent white overlay */
+.overlay {
+    background: linear-gradient(
+        to left, 
+        rgba(255, 255, 255, 0.8) 50%, /* White gradient covering half */
+        rgba(255, 255, 255, 0) 100% /* Transparent on the other half */
+    );
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Centered content */
+.content {
+    position: absolute;
+    right: 10%; /* Move content into the white half on the right */
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 500px;
+    text-align: left; /* Align text to the left */
+    color: #333; /* Dark text for readability */
+}
+
+/* Button styling */
+.btn-warning {
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+}
+
+.homepage-logo{
+    max-width: 1000px; 
+    height: auto;
+    margin: 20px auto;
+}
+
+.event-details{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+/* NAVBAR */
+
+/* Navbar background and text colors */
+.navbar {
+    background-color: #001f3f; /* Navy background */
+    color: white; /* White text */
+    font-family: 'Georgia', serif; /* Replace with your chosen font */
+    font-weight: 500; /* Slightly bold for elegance */
+}
+
+/* Navbar logo and brand */
+.navbar-brand {
+    color: white; /* White text for the logo area */
+    font-weight: bold;
+    font-size: 1.5rem; /* Slightly larger for prominence */
+}
+
+.navbar-brand img {
+    max-height: 40px; /* Keep logo height consistent */
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: white; /* White text for links */
+    font-size: 1rem; /* Elegant font size */
+    margin-left: 10px; /* Add spacing between links */
+    text-transform: uppercase; /* Optional: all caps for a modern look */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Navbar link hover effect */
+.navbar-nav .nav-link:hover {
+    color: #FFD700; /* Gold text on hover */
+}
+
+/* Highlighted button for Register */
+.navbar-nav .btn-warning {
+    background-color: #FFD700; /* Gold button */
+    color: #001f3f; /* Navy text */
+    border: none; /* Clean look */
+    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 10px; /* Space from other links */
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .btn-warning:hover {
+    background-color: #e6c300; /* Darker gold on hover */
+    color: white; /* White text */
+}
+
+/* ABOUT PAGE */
+/* General Section Styling */
+section {
+    padding: 60px 0; /* Uniform vertical padding for all sections */
+    font-family: 'Georgia', serif;
+
+}
+
+section h2, .about-hero h1 {
+    font-size: 2.5rem; /* Consistent heading size */
+    color: #001f3f; /* Navy for headings */
+    font-weight: bold; /* Bold for prominence */
+    text-align: center; /* Center-align all headings */
+    margin-bottom: 20px; /* Spacing below headings */
+}
+
+section p {
+    font-size: 1.2rem; /* Consistent paragraph font size */
+    line-height: 1.8; /* Good readability */
+    color: #333; /* Neutral text color for paragraphs */
+    margin-bottom: 20px; /* Spacing between paragraphs */
+}
+
+/* Hero Section */
+.about-hero {
+    background-color: #001f3f; /* Navy background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 100px 0; /* Tall, clean section */
+}
+
+.about-hero h1 {
+    font-size: 3rem; /* Larger text for the hero */
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Split Section Styling (for all sections) */
+.split-section {
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Center content horizontally */
+    flex-wrap: wrap; /* Wrap on smaller screens */
+    gap: 30px; /* Space between items */
+    margin-bottom: 50px; /* Space below each split section */
+}
+
+.split-section .text-container {
+    max-width: 500px; /* Restrict text width for readability */
+    margin: auto;
+}
+
+.split-section img {
+    width: 100%; /* Full width of the column */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image fits neatly */
+    border-radius: 20px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Background Colors for Alternating Sections */
+.mission-split {
+    background-color: #f8f9fa; /* Light gray background for contrast */
+}
+
+.history-split {
+    background-color: white; /* White background */
+}
