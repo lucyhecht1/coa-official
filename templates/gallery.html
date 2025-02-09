@@ -3,8 +3,11 @@
 {% block title %}Gallery - Yavneh Celebration of the Arts{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>Gallery</h1>
-    <p>Photos and videos from the event will be displayed here.</p>
-</div>
+<section class="gallery-hero">
+    <div class="container text-center">
+        <h1>Gallery</h1>
+        <p>Select a gallery to view photos.</p>
+        <a href="{{ url_for('gallery_2024') }}" class="btn btn-primary btn-lg">Gallery 2024</a>
+    </div>
+</section>
 {% endblock %}

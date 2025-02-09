@@ -17,6 +17,10 @@ def about():
 def gallery():
     return render_template('gallery.html')
 
+@app.route('/gallery/2024')
+def gallery_2024():
+    return render_template('gallery_2024.html')
+
 # Schedule route
 @app.route('/schedule')
 def schedule():
