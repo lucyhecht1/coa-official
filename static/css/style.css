@@ -124,6 +124,9 @@ section h2, .about-hero h1 {
     text-align: center; /* Center-align all headings */
     margin-bottom: 20px; /* Spacing below headings */
 }
+.about-hero h1 {
+    color: white;
+}
 
 section p {
     font-size: 1.2rem; /* Consistent paragraph font size */
@@ -176,4 +179,83 @@ section p {
 
 .history-split {
     background-color: white; /* White background */
+}
+
+/* GALLERY */
+
+/* Gallery Grid Styling */
+.gallery-2024 .gallery-image {
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery-2024 .gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1050;
+    padding-top: 10%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 50%; /* Reduce the size of the image */
+    max-height: 70vh; /* Ensure it doesn't take too much vertical space */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+    border: none; /* Remove default button styling */
+    border-radius: 5px;
+    user-select: none;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: #FFD700; /* Gold hover effect */
+    color: black;
 }
