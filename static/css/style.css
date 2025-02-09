@@ -12,11 +12,7 @@
 
 /* Semi-transparent white overlay */
 .overlay {
-    background: linear-gradient(
-        to left, 
-        rgba(255, 255, 255, 0.8) 50%, /* White gradient covering half */
-        rgba(255, 255, 255, 0) 100% /* Transparent on the other half */
-    );
+    background: rgba(255, 255, 255, 0.7); /* Cloudy white overlay with 60% transparency */
     width: 100%;
     height: 100%;
     position: absolute;
@@ -27,13 +23,14 @@
 /* Centered content */
 .content {
     position: absolute;
-    right: 10%; /* Move content into the white half on the right */
     top: 50%;
-    transform: translateY(-50%);
-    max-width: 500px;
-    text-align: left; /* Align text to the left */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+    max-width: 500px; /* Restrict content width */
+    text-align: center; /* Center-align text */
     color: #333; /* Dark text for readability */
 }
+
 
 /* Button styling */
 .btn-warning {
