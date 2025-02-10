@@ -124,6 +124,25 @@ main {
     pointer-events: none;
     animation: sparkle 2s infinite ease-in-out;
 }
+/* Responsive Button */
+@media (max-width: 992px) { /* Tablets */
+    .glimmer-btn {
+        font-size: 1.3rem;
+        padding: 10px 25px;
+    }
+}
+@media (max-width: 768px) { /* Mobile devices */
+    .glimmer-btn {
+        font-size: 1.1rem;
+        padding: 8px 20px;
+    }
+}
+@media (max-width: 480px) { /* Very small screens */
+    .glimmer-btn {
+        font-size: 1rem;
+        padding: 6px 18px;
+    }
+}
 /* Keyframes for Glimmering Effect */
 @keyframes glimmer {
     0% {
@@ -142,33 +161,32 @@ main {
     100% { opacity: 0; transform: scale(1); }
 }
 .homepage-logo {
-    width: 50vw; /* 50% of the viewport width for better scaling */
+    width: 50vw; /* Default width for most screens */
     max-width: 700px; /* Prevent it from getting too large */
     height: auto; /* Maintain aspect ratio */
     margin-top: -100px;
 }
-
-/* Adjust for smaller screens */
-@media (max-width: 992px) { /* Tablets */
+/* Adjustments for Tablets */
+@media (max-width: 992px) {
     .homepage-logo {
-        width: 60vw; /* Make it slightly larger on medium screens */
+        width: 60vw;
         max-width: 500px;
         margin-top: -50px;
     }
 }
-
-@media (max-width: 768px) { /* Mobile devices */
+/* Adjustments for Mobile Devices */
+@media (max-width: 768px) {
     .homepage-logo {
-        width: 70vw; /* Take up more space on small screens */
-        max-width: 400px;
+        width: 70vw;
+        max-width: 450px;
         margin-top: -30px;
     }
 }
-
-@media (max-width: 480px) { /* Very small devices */
+/* Adjustments for Small Phones (iPhone) */
+@media (max-width: 480px) {
     .homepage-logo {
-        width: 80vw; /* Allow it to scale even more */
-        max-width: 300px;
+        width: 85vw;
+        max-width: 380px;
         margin-top: -20px;
     }
 }
