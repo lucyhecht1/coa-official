@@ -142,9 +142,9 @@ main {
     100% { opacity: 0; transform: scale(1); }
 }
 .homepage-logo {
-    width: 50vw; /* Default width for most screens */
-    max-width: 700px; /* Prevent it from getting too large */
-    height: auto; /* Maintain aspect ratio */
+    width: 50vw; 
+    max-width: 700px;
+    height: auto; 
     margin-top: -100px;
 }
 /* Adjustments for Tablets */
@@ -152,7 +152,7 @@ main {
     .homepage-logo {
         width: 60vw;
         max-width: 500px;
-        margin-top: -50px;
+        margin-top: -100px;
     }
 }
 /* Adjustments for Mobile Devices */
@@ -160,7 +160,7 @@ main {
     .homepage-logo {
         width: 80vw;
         max-width: 600px;
-        margin-top: -30px;
+        margin-top: -50px;
     }
 }
 /* Adjustments for Small Phones (iPhone) */
@@ -168,10 +168,9 @@ main {
     .homepage-logo {
         width: 85vw;
         max-width: 470px;
-        margin-top: -20px;
+        margin-top: -50px;
     }
 }
-
 /***************************/
 /********* ABOUT **********/
 section {
