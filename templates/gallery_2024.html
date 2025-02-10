@@ -32,6 +32,8 @@
     <!-- Navigation Buttons -->
     <button class="prev" onclick="changeImage(-1)">&#10094;</button>
     <button class="next" onclick="changeImage(1)">&#10095;</button>
+    <!-- Download Button -->
+    <a id="downloadBtn" class="download" href="#" download>Download</a>
 </div>
 
 <script>
@@ -41,10 +43,12 @@
     function openModal(index) {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
+        const downloadBtn = document.getElementById('downloadBtn');
 
         currentIndex = index; // Update current image index
         modal.style.display = 'block';
         modalImg.src = `/static/images/gallery2024/image${index}.jpg`;
+        downloadBtn.href = modalImg.src; // Set download button link
 
         // Add "modal-open" class to body to disable hover effects
         document.body.classList.add('modal-open');
@@ -61,6 +65,7 @@
     // Change image with buttons or keyboard
     function changeImage(direction) {
         const modalImg = document.getElementById('modalImg');
+        const downloadBtn = document.getElementById('downloadBtn');
 
         currentIndex += direction;
 
@@ -72,6 +77,7 @@
         }
 
         modalImg.src = `/static/images/gallery2024/image${currentIndex}.jpg`;
+        downloadBtn.href = modalImg.src; // Update download button link
     }
 
     // Add key navigation for the modal
