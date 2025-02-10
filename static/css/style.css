@@ -1,21 +1,57 @@
-/* LAYOUT */
+/***************************/
+/********* LAYOUT **********/
 html, body {
-    height: 100%; /* Set full height for the page */
-    margin: 0; /* Remove default margin */
+    height: 100%; 
+    margin: 0;
 }
-
 body {
     display: flex;
-    flex-direction: column; /* Enable flexbox layout */
+    flex-direction: column;
 }
-
 main {
-    flex-grow: 1; /* Push the footer to the bottom if content is insufficient */
+    flex-grow: 1; 
 }
 
-/* HOMEPAGE */ 
 
-/* Background image with full coverage */
+/***************************/
+/********* NAVBAR **********/
+
+.navbar {
+    background-color: #001f3f;
+    color: white; 
+    font-family: 'Georgia', serif; 
+    font-weight: 500;
+}
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.navbar-logo {
+    height: 100px; 
+    width: auto; 
+    max-height: 58px; 
+    margin-top: -3px;
+    margin-bottom: -9px;
+}
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: white; 
+    font-size: 1rem;
+    margin-left: 10px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #C0C0C0; 
+    text-shadow: 0 0 8px rgba(192, 192, 192, 0.8); /* Subtle glow effect */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+/***************************/
+/******** HOMEPAGE *********/
+
 .homepage-background {
     background: url('../images/homepage.png') no-repeat center center/cover;
     height: 100vh; /* Full viewport height */
@@ -24,13 +60,11 @@ main {
     justify-content: center;
     position: relative;
 }
-
-/* Semi-transparent white overlay */
 .overlay {
     background: linear-gradient(
         to left, 
-        rgba(0, 0, 50, 0.716) 50%, /* Navy gradient covering half */
-        rgba(0, 0, 50, 0.716) 100% /* Transparent navy on the other half */
+        rgba(0, 0, 50, 0.716) 50%, 
+        rgba(0, 0, 50, 0.716) 100% 
     );
     width: 100%;
     height: 100%;
@@ -38,44 +72,73 @@ main {
     top: 0;
     left: 0;
 }
-
 .content {
     position: absolute;
     top: 50%;
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Center both vertically and horizontally */
     text-align: center; /* Center-align text */
-    color: #333; /* Dark text for readability */
+    color: #001f3f;
 }
-
-/* Silver Button */
-button.silver-btn, a.silver-btn {
-    background-color: #C0C0C0 !important; 
-    color: white !important; 
-    border: 2px solid #C0C0C0 !important; 
-    border-radius: 8px;
-    padding: 6px 16px;
-    font-size: 1.2rem;
+.glimmer-btn {
+    font-family: 'Georgia', serif !important; 
+    background: linear-gradient(135deg, #E8E8E8, #FFFFFF); 
+    color: #001f3f !important;
     text-transform: uppercase;
-    font-family: 'Georgia', serif; /* Replace with your chosen font */
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    display: inline-block;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-
-button.silver-btn:hover, a.silver-btn:hover {
-    background-color: #B0B0B0 !important; /* Darker silver on hover */
-    color: white !important; /* Keep white text */
+.glimmer-btn:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
-
-
+/* Glimmer Animation */
+.glimmer-btn::before {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.5) 80%);
+    transform: rotate(25deg);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    animation: glimmer 2s infinite linear;
+}
+/* Sparkles Animation */
+.glimmer-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0) 50%);
+    opacity: 0;
+    pointer-events: none;
+    animation: sparkle 2s infinite ease-in-out;
+}
+/* Keyframes for Glimmering Effect */
+@keyframes glimmer {
+    0% {
+        top: -150%;
+        left: -150%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
+    }
+}
+/* Keyframes for Sparkles */
+@keyframes sparkle {
+    0% { opacity: 0; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(1); }
+}
 .homepage-logo{
     width: 700px; 
     margin-top: -100px;
 }
-
 .event-details{
     font-size: 30px;
     font-weight: bold;
@@ -83,141 +146,87 @@ button.silver-btn:hover, a.silver-btn:hover {
     margin-top: -10px;
 }
 
-/* NAVBAR */
 
-/* Navbar background and text colors */
-.navbar {
-    background-color: #001f3f; /* Navy background */
-    color: white; /* White text */
-    font-family: 'Georgia', serif; /* Replace with your chosen font */
-    font-weight: 500; /* Slightly bold for elegance */
-}
-
-/* Navbar logo and brand */
-.navbar-brand {
-    color: white; /* White text for the logo area */
-    font-weight: bold;
-    font-size: 1.5rem; /* Slightly larger for prominence */
-}
-
-.navbar-logo {
-    height: 100px; 
-    width: auto; 
-    max-height: 58px; 
-    margin-top: -3px;
-    margin-bottom: -9px;
-}
-
-/* Navbar links */
-.navbar-nav .nav-link {
-    color: white; /* White text for links */
-    font-size: 1rem; /* Elegant font size */
-    margin-left: 10px; /* Add spacing between links */
-    text-transform: uppercase; /* Optional: all caps for a modern look */
-    transition: color 0.3s ease; /* Smooth hover effect */
-}
-
-/* Navbar link hover effect */
-.navbar-nav .nav-link:hover {
-    color: #C0C0C0; /* Shiny silver color */
-    text-shadow: 0 0 8px rgba(192, 192, 192, 0.8); /* Subtle glow effect */
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
-}
-
-/* ABOUT PAGE */
-/* General Section Styling */
+/***************************/
+/********* ABOUT **********/
 section {
-    padding: 60px 0; /* Uniform vertical padding for all sections */
+    padding: 60px 0;
     font-family: 'Georgia', serif;
-
 }
-
 section h2, .about-hero h1 {
-    font-size: 2.5rem; /* Consistent heading size */
-    color: #001f3f; /* Navy for headings */
-    font-weight: bold; /* Bold for prominence */
-    text-align: center; /* Center-align all headings */
-    margin-bottom: 20px; /* Spacing below headings */
+    font-size: 2.5rem;
+    color: #001f3f; /* Navy headings */
+    font-weight: bold; 
+    text-align: center; 
+    margin-bottom: 20px;
 }
 .about-hero h1 {
     color: white;
 }
-
 section p {
-    font-size: 1.2rem; /* Consistent paragraph font size */
-    line-height: 1.8; /* Good readability */
-    color: #333; /* Neutral text color for paragraphs */
-    margin-bottom: 20px; /* Spacing between paragraphs */
+    font-size: 1.2rem; 
+    line-height: 1.8; 
+    color: #333;
+    margin-bottom: 20px;
 }
-
-/* Hero Section */
 .about-hero {
-    background-color: #001f3f; /* Navy background */
-    color: white; /* White text */
+    background-color: #001f3f;
+    color: white;
     text-align: center;
-    padding: 100px 0; /* Tall, clean section */
+    padding: 100px 0;
 }
-
 .about-hero h1 {
-    font-size: 3rem; /* Larger text for the hero */
+    font-size: 3rem;
     font-weight: bold;
     margin: 0;
 }
-
-/* Split Section Styling (for all sections) */
 .split-section {
     display: flex;
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Center content horizontally */
-    flex-wrap: wrap; /* Wrap on smaller screens */
-    gap: 30px; /* Space between items */
-    margin-bottom: 50px; /* Space below each split section */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 30px; 
+    margin-bottom: 50px; 
 }
-
 .split-section .text-container {
-    max-width: 500px; /* Restrict text width for readability */
+    max-width: 500px; 
     margin: auto;
 }
 /* Text Container Styling */
 .text-container {
-    text-align: justify; /* Align text evenly on both sides */
-    width: 100%; /* Ensure text spans the entire column width */
-    margin: 0 auto; /* Center text block if needed */
+    text-align: justify; 
+    width: 100%; 
+    margin: 0 auto;
 }
 
 .split-section img {
-    width: 100%; /* Full width of the column */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure the image fits neatly */
-    border-radius: 20px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;
+    border-radius: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
-/* Background Colors for Alternating Sections */
 .mission-split {
-    background-color: #f8f9fa; /* Light gray background for contrast */
+    background-color: #f8f9fa;
 }
-
 .history-split {
-    background-color: white; /* White background */
+    background-color: white;
 }
 
-/* GALLERY */
+/***************************/
+/******** GALLERY **********/
 
-/* Gallery Preview Section */
 .gallery-icons {
     padding: 50px 0;
-    background-color: #f9f9f9; /* Light background for contrast */
+    background-color: #f9f9f9;
 }
-
 .gallery-icons h2 {
     font-size: 2.5rem;
     font-weight: bold;
     color: #001f3f; /* Navy blue */
     margin-bottom: 30px;
 }
-
-/* Gallery Card Styling */
 .gallery-card {
     position: relative;
     display: inline-block;
@@ -225,43 +234,35 @@ section p {
     height: 250px;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .gallery-card:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-
-/* Gallery Thumbnail */
 .gallery-thumbnail {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-/* Overlay Effect */
 .overlay-gal {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 50, 0.6); /* Navy transparent overlay */
+    background: rgba(0, 0, 50, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     transition: opacity 0.3s ease;
     border-radius: 10px;
 }
-
 .gallery-card:hover .overlay-gal {
-    opacity: 1; /* Show overlay on hover */
+    opacity: 1;
 }
-
-/* Overlay Text */
 .overlay-text {
     font-size: 1.5rem;
     color: white;
@@ -270,19 +271,15 @@ section p {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
 }
-
-/* Gallery Grid Styling */
 .gallery-2024 .gallery-image {
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
-
 .gallery-2024 .gallery-image:hover {
     transform: scale(1.05);
 }
-
 /* Modal Styling */
 .modal {
     display: none; /* Hidden by default */
@@ -294,19 +291,17 @@ section p {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.9);
 }
-
 .modal-content {
     margin: auto;
     display: block;
     max-width: 50%; 
     max-height: 70vh; 
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
-    object-fit: contain; /* Maintain aspect ratio */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
 }
-
 .close {
     position: absolute;
     top: 20px;
@@ -316,82 +311,103 @@ section p {
     font-weight: bold;
     cursor: pointer;
 }
-
-/* Navigation Buttons */
 .prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    color: white; /* White text, no background */
+    color: white; 
     font-weight: bold;
-    font-size: 35px; /* Match size with the close button */
-    border: none; /* Remove borders */
-    background: none; /* No background */
+    font-size: 35px;
+    border: none; 
+    background: none; 
     transform: translateY(-50%);
-    user-select: none; /* Prevent text selection */
-    transition: color 0.3s ease; /* Smooth color transition */
+    user-select: none; 
+    transition: color 0.3s ease; 
 }
-
-
 .prev {
     left: 10px;
 }
-
 .next {
     right: 10px;
 }
-
 .prev:hover, .next:hover {
     color: #C0C0C0; /* Shiny silver on hover */
 }
 /* Download Button Styling */
 .download {
-    font-family: 'Georgia', serif; /* Replace with your chosen font */
+    font-family: 'Georgia', serif;
     position: absolute;
     bottom: 20px; /* Position at the bottom of the modal */
     right: 35px; /* Align with the close button */
-    color: white; /* White text */
-    font-size: 14px; /* Adjust font size */
+    color: white;
+    font-size: 14px;
     font-weight: bold;
-    text-decoration: none; /* Remove underline */
-    background: none; /* No background */
-    border: 2px solid white; /* Add a border for visibility */
-    padding: 6px 12px; /* Add padding */
-    border-radius: 5px; /* Rounded corners */
+    text-decoration: none;
+    background: none; 
+    border: 2px solid white;
+    padding: 6px 12px; 
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .download:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
     background-color: #C0C0C0; /* Shiny silver background on hover */
     color: black; /* Black text on hover */
 }
+/* Glimmer Animation */
+.download::before {
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.5) 80%);
+    transform: rotate(25deg);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+/* Sparkles Animation */
+.download-btn::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0) 50%);
+    opacity: 0;
+    pointer-events: none;
+    animation: sparkle 2s infinite ease-in-out;
+}
 
-/* REGISTER */
+@keyframes sparkle {
+    0% { opacity: 0; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(1); }
+}
 
-/* Google Form Container */
+/***************************/
+/******** REGISTER *********/
 .google-form-container {
     width: 100%;
-    max-width: 800px; /* Adjust the max width as needed */
-    margin: 0 auto; /* Center the form on the page */
-    height: 1000px; /* Adjust height to fit the form */
-    border: none; /* Remove border for a cleaner look */
-    overflow: hidden; /* Prevent scrollbars if unnecessary */
+    max-width: 800px; 
+    margin: 0 auto; 
+    height: 1000px; 
+    border: none;
+    overflow: hidden;
 }
-
 .google-form-container iframe {
-    border: none; /* Remove iframe border */
+    border: none;
 }
 
-/* CONTACT US */
+/***************************/
+/******* CONTACT US ********/
 .email-link {
-    color: #001f3f; /* Navy blue */
+    color: #001f3f;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
 }
-
 .email-link:hover {
     text-decoration: underline;
 }
-

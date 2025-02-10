@@ -13,7 +13,7 @@
         <div class="row">
             <!-- Gallery Images -->
             {% for i in range(1, 181) %}
-            {% if i not in [40, 67, 68, 69] %} <!-- Skip specific indices -->
+            {% if i not in [40, 67, 68, 69] %} <!-- Skip missing image indices -->
             <div class="col-md-4 col-sm-6 mb-4">
                 <img src="{{ url_for('static', filename='images/gallery2024/image' ~ i ~ '.jpg') }}" 
                      alt="Gallery Image {{ i }}" 
@@ -100,7 +100,7 @@
         downloadBtn.href = modalImg.src; // Update download button link
     }
 
-    // Add key navigation for the modal
+    // Add keyboard navigation for the modal
     document.addEventListener('keydown', function (event) {
         const modal = document.getElementById('imageModal');
         if (modal.style.display === 'block') {
