@@ -21,16 +21,6 @@ def gallery():
 def gallery_2024():
     return render_template('gallery_2024.html')
 
-# Schedule route
-@app.route('/schedule')
-def schedule():
-    return render_template('schedule.html')
-
-# Participants route
-@app.route('/participants')
-def participants():
-    return render_template('participants.html')
-
 # Register route
 @app.route('/register')
 def register():
