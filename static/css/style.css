@@ -47,6 +47,12 @@ main {
     text-shadow: 0 0 8px rgba(192, 192, 192, 0.8); /* Subtle glow effect */
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
+.navbar-toggler {
+    border-color: white !important; /* Make border white */
+}
+.navbar-toggler-icon {
+    filter: invert(1); /* Makes the icon white */
+}
 
 
 /***************************/
