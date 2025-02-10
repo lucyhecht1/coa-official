@@ -10,6 +10,23 @@
 </section>
 
 <div class="container mt-5 text-center">
-    <p>Reach out with any questions or inquiries about the Yavneh Celebration of the Arts.</p>
+    <p>
+        If you have any questions, comments, or feedback, feel free to email us at 
+        <span class="email-container" onclick="copyToClipboard('yavneh@hillel.columbia.edu')">
+            <a href="mailto:yavneh@hillel.columbia.edu" class="email-link">yavneh@hillel.columbia.edu</a>.
+            <br> We'd love to hear from you!
+        </span>
+    </p>
+    
+
 </div>
+
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).catch(err => {
+        console.error('Failed to copy: ', err); // Log errors silently
+    });
+}
+
+</script>
 {% endblock %}
