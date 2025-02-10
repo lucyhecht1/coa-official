@@ -12,13 +12,15 @@
     <div class="container">
         <div class="row">
             <!-- Gallery Images -->
-            {% for i in range(1, 182) %}
+            {% for i in range(1, 181) %}
+            {% if i not in [40, 67, 68, 69] %} <!-- Skip specific indices -->
             <div class="col-md-4 col-sm-6 mb-4">
                 <img src="{{ url_for('static', filename='images/gallery2024/image' ~ i ~ '.jpg') }}" 
                      alt="Gallery Image {{ i }}" 
                      class="img-fluid gallery-image" 
                      onclick="openModal({{ i }})">
             </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -38,12 +40,20 @@
 
 <script>
     let currentIndex = 0; // Track the current image index
+    const skipIndices = [40, 67, 68, 69]; // Indices to skip
+    const totalImages = 180; // Total number of images
 
     // Open modal and display selected image
     function openModal(index) {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
         const downloadBtn = document.getElementById('downloadBtn');
+
+        // Skip missing indices
+        while (skipIndices.includes(index)) {
+            index++;
+            if (index > totalImages) index = 1; // Wrap to the beginning
+        }
 
         currentIndex = index; // Update current image index
         modal.style.display = 'block';
@@ -71,9 +81,19 @@
 
         // Wrap around if out of bounds
         if (currentIndex < 1) {
-            currentIndex = 181; // Last image index
-        } else if (currentIndex > 181) {
-            currentIndex = 1; // First image index
+            currentIndex = totalImages;
+        } else if (currentIndex > totalImages) {
+            currentIndex = 1;
+        }
+
+        // Skip missing indices
+        while (skipIndices.includes(currentIndex)) {
+            currentIndex += direction;
+            if (currentIndex < 1) {
+                currentIndex = totalImages;
+            } else if (currentIndex > totalImages) {
+                currentIndex = 1;
+            }
         }
 
         modalImg.src = `/static/images/gallery2024/image${currentIndex}.jpg`;
