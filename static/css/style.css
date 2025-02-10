@@ -322,18 +322,16 @@ section p {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: auto;
-    padding: 10px 20px;
-    color: white;
+    color: white; /* White text, no background */
     font-weight: bold;
-    font-size: 30px;
-    background: rgba(0, 0, 0, 0.5); /* Transparent background */
-    border: none; /* Remove default button styling */
-    border-radius: 5px;
-    user-select: none;
+    font-size: 35px; /* Match size with the close button */
+    border: none; /* Remove borders */
+    background: none; /* No background */
     transform: translateY(-50%);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none; /* Prevent text selection */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
+
 
 .prev {
     left: 10px;
@@ -344,9 +342,31 @@ section p {
 }
 
 .prev:hover, .next:hover {
-    background-color: #1a3d6a; /* Gold hover effect */
-    color: black;
+    color: #C0C0C0; /* Shiny silver on hover */
 }
+/* Download Button Styling */
+.download {
+    font-family: 'Georgia', serif; /* Replace with your chosen font */
+    position: absolute;
+    bottom: 20px; /* Position at the bottom of the modal */
+    right: 35px; /* Align with the close button */
+    color: white; /* White text */
+    font-size: 14px; /* Adjust font size */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+    background: none; /* No background */
+    border: 2px solid white; /* Add a border for visibility */
+    padding: 6px 12px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.download:hover {
+    background-color: #C0C0C0; /* Shiny silver background on hover */
+    color: black; /* Black text on hover */
+}
+
 /* REGISTER */
 
 /* Google Form Container */
