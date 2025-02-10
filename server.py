@@ -21,6 +21,14 @@ def gallery():
 def gallery_2024():
     return render_template('gallery_2024.html')
 
+@app.route('/gallery/2025')
+def gallery_2025():
+    return render_template('gallery_2025.html')
+
+@app.route('/gallery/2026')
+def gallery_2026():
+    return render_template('gallery_2026.html')
+
 # Register route
 @app.route('/register')
 def register():

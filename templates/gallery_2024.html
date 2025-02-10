@@ -3,9 +3,13 @@
 {% block title %}Gallery 2024 - Yavneh Celebration of the Arts{% endblock %}
 
 {% block content %}
+<section class="about-hero">
+    <div class="container text-center white-text">
+        <h1>Gallery 2024</h1>
+    </div>
+</section>
 <section class="gallery-2024">
     <div class="container">
-        <h1 class="text-center">Gallery 2024</h1>
         <div class="row">
             <!-- Gallery Images -->
             {% for i in range(1, 182) %}
@@ -37,12 +41,10 @@
     function openModal(index) {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
-        const caption = document.getElementById('caption');
 
         currentIndex = index; // Update current image index
         modal.style.display = 'block';
         modalImg.src = `/static/images/gallery2024/image${index}.jpg`;
-        caption.innerHTML = `Image ${index}`;
 
         // Add "modal-open" class to body to disable hover effects
         document.body.classList.add('modal-open');
@@ -59,7 +61,6 @@
     // Change image with buttons or keyboard
     function changeImage(direction) {
         const modalImg = document.getElementById('modalImg');
-        const caption = document.getElementById('caption');
 
         currentIndex += direction;
 
@@ -71,7 +72,6 @@
         }
 
         modalImg.src = `/static/images/gallery2024/image${currentIndex}.jpg`;
-        caption.innerHTML = `Image ${currentIndex}`;
     }
 
     // Add key navigation for the modal

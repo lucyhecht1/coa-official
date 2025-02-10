@@ -9,10 +9,52 @@
     </div>
 </section>
 
-<section class="gallery-hero">
+<section class="gallery-icons">
     <div class="container text-center">
-        <p>Select a gallery to view photos.</p>
-        <a href="{{ url_for('gallery_2024') }}" class="btn btn-primary btn-lg">Gallery 2024</a>
+        <h2>Our Galleries</h2>
+        <div class="row">
+            <!-- Gallery 2024 -->
+            <div class="col-md-4">
+                <a href="{{ url_for('gallery_2024') }}" class="gallery-link">
+                    <div class="gallery-card">
+                        <img src="{{ url_for('static', filename='images/gallery2024/image1.jpg') }}" alt="Gallery 2024 Preview" class="gallery-thumbnail">
+                        <div class="overlay-gal">
+                            <div class="overlay-text">Gallery 2024</div>
+                        </div>
+                    </div>
+                </a>
+                <p class="gallery-caption">Gallery 2024</p>
+            </div>
+
+            <!-- Gallery 2025 -->
+            <div class="col-md-4">
+                <a href="{{ url_for('gallery_2025') }}" class="gallery-link">
+                    <div class="gallery-card">
+                        <img src="{{ url_for('static', filename='images/coming-soon.jpg') }}" alt="Gallery 2025 Coming Soon" class="gallery-thumbnail">
+                        <div class="overlay-gal">
+                            <div class="overlay-text">Gallery 2025 <br>(Coming Soon)</div>
+                        </div>
+                    </div>
+                </a>
+                <p class="gallery-caption">Gallery 2025</p>
+            </div>
+
+            <!-- Gallery 2026 -->
+            <div class="col-md-4">
+                <a href="{{ url_for('gallery_2026') }}" class="gallery-link">
+                    <div class="gallery-card">
+                        <img src="{{ url_for('static', filename='images/coming-soon.jpg') }}" alt="Gallery 2026 Coming Soon" class="gallery-thumbnail">
+                        <div class="overlay-gal">
+                            <div class="overlay-text">Gallery 2026 <br>(Coming Soon)</div>
+                        </div>
+                    </div>
+                </a>
+                <p class="gallery-caption">Gallery 2026</p>
+            </div>
+        </div>
     </div>
 </section>
+
+
+
 {% endblock %}

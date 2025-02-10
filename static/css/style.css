@@ -1,3 +1,18 @@
+/* LAYOUT */
+html, body {
+    height: 100%; /* Set full height for the page */
+    margin: 0; /* Remove default margin */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Enable flexbox layout */
+}
+
+main {
+    flex-grow: 1; /* Push the footer to the bottom if content is insufficient */
+}
+
 /* HOMEPAGE */ 
 
 /* Background image with full coverage */
@@ -33,15 +48,28 @@
     color: #333; /* Dark text for readability */
 }
 
-
-/* Button styling */
-.btn-warning {
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
+/* Silver Button */
+button.silver-btn, a.silver-btn {
+    background-color: #C0C0C0 !important; 
+    color: white !important; 
+    border: 2px solid #C0C0C0 !important; 
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    padding: 10px 20px;
+    font-family: 'Georgia', serif; /* Replace with your chosen font */
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+button.silver-btn:hover, a.silver-btn:hover {
+    background-color: #B0B0B0 !important; /* Darker silver on hover */
+    color: white !important; /* Keep white text */
+}
+
 
 .homepage-logo{
     width: 700px; 
@@ -75,7 +103,9 @@
 .navbar-logo {
     height: 100px; 
     width: auto; 
-    max-height: 50px; 
+    max-height: 58px; 
+    margin-top: -3px;
+    margin-bottom: -9px;
 }
 
 /* Navbar links */
@@ -89,24 +119,9 @@
 
 /* Navbar link hover effect */
 .navbar-nav .nav-link:hover {
-    color: #FFD700; /* Gold text on hover */
-}
-
-/* Highlighted button for Register */
-.navbar-nav .btn-warning {
-    background-color: #FFD700; /* Gold button */
-    color: #001f3f; /* Navy text */
-    border: none; /* Clean look */
-    font-weight: bold;
-    font-size: 1rem;
-    margin-left: 10px; /* Space from other links */
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar-nav .btn-warning:hover {
-    background-color: #e6c300; /* Darker gold on hover */
-    color: white; /* White text */
+    color: #C0C0C0; /* Shiny silver color */
+    text-shadow: 0 0 8px rgba(192, 192, 192, 0.8); /* Subtle glow effect */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
 }
 
 /* ABOUT PAGE */
@@ -163,6 +178,12 @@ section p {
     max-width: 500px; /* Restrict text width for readability */
     margin: auto;
 }
+/* Text Container Styling */
+.text-container {
+    text-align: justify; /* Align text evenly on both sides */
+    width: 100%; /* Ensure text spans the entire column width */
+    margin: 0 auto; /* Center text block if needed */
+}
 
 .split-section img {
     width: 100%; /* Full width of the column */
@@ -182,6 +203,73 @@ section p {
 }
 
 /* GALLERY */
+
+/* Gallery Preview Section */
+.gallery-icons {
+    padding: 50px 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.gallery-icons h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #001f3f; /* Navy blue */
+    margin-bottom: 30px;
+}
+
+/* Gallery Card Styling */
+.gallery-card {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+/* Gallery Thumbnail */
+.gallery-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay Effect */
+.overlay-gal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 50, 0.6); /* Navy transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.gallery-card:hover .overlay-gal {
+    opacity: 1; /* Show overlay on hover */
+}
+
+/* Overlay Text */
+.overlay-text {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
 
 /* Gallery Grid Styling */
 .gallery-2024 .gallery-image {
@@ -212,8 +300,8 @@ section p {
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 50%; /* Reduce the size of the image */
-    max-height: 70vh; /* Ensure it doesn't take too much vertical space */
+    max-width: 50%; 
+    max-height: 70vh; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
     object-fit: contain; /* Maintain aspect ratio */
@@ -259,3 +347,31 @@ section p {
     background-color: #1a3d6a; /* Gold hover effect */
     color: black;
 }
+/* REGISTER */
+
+/* Google Form Container */
+.google-form-container {
+    width: 100%;
+    max-width: 800px; /* Adjust the max width as needed */
+    margin: 0 auto; /* Center the form on the page */
+    height: 1000px; /* Adjust height to fit the form */
+    border: none; /* Remove border for a cleaner look */
+    overflow: hidden; /* Prevent scrollbars if unnecessary */
+}
+
+.google-form-container iframe {
+    border: none; /* Remove iframe border */
+}
+
+/* CONTACT US */
+.email-link {
+    color: #001f3f; /* Navy blue */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
