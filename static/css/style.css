@@ -124,25 +124,6 @@ main {
     pointer-events: none;
     animation: sparkle 2s infinite ease-in-out;
 }
-/* Responsive Button */
-@media (max-width: 992px) { /* Tablets */
-    .glimmer-btn {
-        font-size: 1.3rem;
-        padding: 10px 25px;
-    }
-}
-@media (max-width: 768px) { /* Mobile devices */
-    .glimmer-btn {
-        font-size: 1.1rem;
-        padding: 8px 20px;
-    }
-}
-@media (max-width: 480px) { /* Very small screens */
-    .glimmer-btn {
-        font-size: 1rem;
-        padding: 6px 18px;
-    }
-}
 /* Keyframes for Glimmering Effect */
 @keyframes glimmer {
     0% {
@@ -177,8 +158,8 @@ main {
 /* Adjustments for Mobile Devices */
 @media (max-width: 768px) {
     .homepage-logo {
-        width: 70vw;
-        max-width: 450px;
+        width: 80vw;
+        max-width: 600px;
         margin-top: -30px;
     }
 }
@@ -186,17 +167,10 @@ main {
 @media (max-width: 480px) {
     .homepage-logo {
         width: 85vw;
-        max-width: 380px;
+        max-width: 470px;
         margin-top: -20px;
     }
 }
-.event-details{
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: -10px;
-}
-
 
 /***************************/
 /********* ABOUT **********/
