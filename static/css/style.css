@@ -410,6 +410,12 @@ section p {
 }
 
 /***************************/
+/******** CHESSED **********/
+.chessed {
+    font-family: 'Georgia', serif; 
+}
+
+/***************************/
 /******** REGISTER *********/
 .google-form-container {
     width: 100%;
@@ -425,6 +431,10 @@ section p {
 
 /***************************/
 /******* CONTACT US ********/
+
+.contact-us{
+    font-family: 'Georgia', serif; 
+}
 .email-link {
     color: #001f3f;
     text-decoration: none;
