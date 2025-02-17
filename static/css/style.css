@@ -417,16 +417,94 @@ section p {
 
 /***************************/
 /******** REGISTER *********/
-.google-form-container {
-    width: 100%;
-    max-width: 800px; 
-    margin: 0 auto; 
-    height: 1000px; 
-    border: none;
-    overflow: hidden;
+.wrap-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.google-form-container iframe {
+.container-box{
+    font-family: 'Georgia', serif; 
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+.rsvp-header h2{
+    font-family: 'Georgia', serif; 
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #001f3f; /* Navy blue */
+    margin: 30px;
+    text-align: center;
+}
+#rsvpForm {
+    font-family: 'Georgia', serif; 
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left; 
+}
+#rsvpForm label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #001f3f;
+}
+#rsvpForm input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#rsvpForm input:focus {
+    border-color: #001f3f; /* Navy border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 31, 63, 0.5);
+}
+/* RSVP Button */
+#rsvpForm button {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #E8E8E8, #FFFFFF); /* Silver gradient */
+    color: #001f3f;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 12px 20px;
     border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+}
+.input-error {
+    border: 2px solid red;
+    background-color: #ffe6e679; /* Light red background */
+}
+/* Button Hover */
+#rsvpForm button:hover {
+    box-shadow: 0 0 15px rgba(192, 192, 192, 0.8);
+    background: linear-gradient(135deg, #ffffff, #E8E8E8);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 50%;
+    }
+    #rsvpForm {
+        padding: 20px;
+    }
+    #rsvpForm button {
+        font-size: 1rem;
+    }
 }
 
 /***************************/

@@ -1,6 +1,34 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request, jsonify
+import sqlite3
+import pandas as pd
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 app = Flask(__name__)
+
+# Authenticate with Google Sheets
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_credentials.json", scope)
+client = gspread.authorize(creds)
+
+# Open your Google Sheet
+sheet = client.open("Yavneh-Arts-RSVP").sheet1
+
+def create_db():
+    conn = sqlite3.connect('rsvp.db')
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS rsvps (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            guests INTEGER NOT NULL,
+            comments TEXT
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+create_db()
 
 # Home route
 @app.route('/')
@@ -33,6 +61,24 @@ def gallery_2026():
 @app.route('/register')
 def register():
     return render_template('register.html')
+
+@app.route('/submit-rsvp', methods=['POST'])
+def submit_rsvp():
+    firstName = request.form.get('firstName')
+    lastName = request.form.get('lastName')
+    email = request.form.get('email')
+
+    sheet.append_row([firstName, lastName, email])  # Add RSVP to Google Sheet
+    
+    return jsonify({"message": "RSVP Submitted! You will receive a confirmation email shortly."})
+
+@app.route('/export-rsvp', methods=['GET'])
+def export_rsvps():
+    conn = sqlite3.connect('rsvp.db')
+    df = pd.read_sql_query("SELECT * FROM rsvps", conn)
+    df.to_csv('rsvp.csv', index=False)
+    conn.close()
+    return jsonify({"message": "RSVPs exported to rsvp.csv!"})
 
 # Contact route
 @app.route('/contact')
