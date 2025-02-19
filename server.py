@@ -12,10 +12,7 @@ app = Flask(__name__)
 # Load environment variables from .env file
 load_dotenv()
 
-# Define Google Sheets API scope
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-
-# Retrieve credentials from environment variable
 google_credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
 
 if not google_credentials_json:
