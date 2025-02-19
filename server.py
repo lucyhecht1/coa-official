@@ -15,15 +15,17 @@ load_dotenv()
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 google_credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
 
-# Debugging: Check if the environment variable is set
 if not google_credentials_json:
     raise ValueError("❌ GOOGLE_CREDENTIALS_JSON environment variable not set!")
 
 try:
     creds_dict = json.loads(google_credentials_json)
+    creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")  # 🔥 FIX HERE
+
     print("✅ Google Credentials Loaded Successfully")
     print(f"Private Key Exists: {'private_key' in creds_dict}")
     print(f"First 50 characters of Private Key: {creds_dict.get('private_key', '')[:50]}")
+
 except json.JSONDecodeError:
     raise ValueError("❌ Failed to parse GOOGLE_CREDENTIALS_JSON. Check formatting.")
 
