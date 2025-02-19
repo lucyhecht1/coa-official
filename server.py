@@ -1,3 +1,6 @@
+import os
+import json
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import pandas as pd
@@ -5,13 +8,14 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 app = Flask(__name__)
 
-# Authenticate with Google Sheets
-scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_credentials.json", scope)
-client = gspread.authorize(creds)
+# Load environment variables from .env file
+load_dotenv()
 
-# Open your Google Sheet
-sheet = client.open("Yavneh-Arts-RSVP").sheet1
+# Retrieve credentials from environment variable
+google_credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+creds_dict = json.loads(google_credentials_json)  # Convert JSON string to dictionary
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+client = gspread.authorize(creds)
 
 def create_db():
     conn = sqlite3.connect('rsvp.db')

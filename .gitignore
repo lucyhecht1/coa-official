@@ -1,0 +1,7 @@
+# Ignore credentials and database files
+google_sheets_credentials.json
+.env
+rsvp.db
+rsvp.csv
+__pycache__/
+
