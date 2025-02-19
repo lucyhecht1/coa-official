@@ -15,10 +15,19 @@ load_dotenv()
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 google_credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
 
+# Debugging: Check if the environment variable is set
 if not google_credentials_json:
-    raise ValueError("GOOGLE_CREDENTIALS_JSON environment variable not set!")
+    raise ValueError("❌ GOOGLE_CREDENTIALS_JSON environment variable not set!")
 
-creds_dict = json.loads(google_credentials_json)  # Convert JSON string to dictionary
+try:
+    creds_dict = json.loads(google_credentials_json)
+    print("✅ Google Credentials Loaded Successfully")
+    print(f"Private Key Exists: {'private_key' in creds_dict}")
+    print(f"First 50 characters of Private Key: {creds_dict.get('private_key', '')[:50]}")
+except json.JSONDecodeError:
+    raise ValueError("❌ Failed to parse GOOGLE_CREDENTIALS_JSON. Check formatting.")
+
+# Authenticate with Google Sheets
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
