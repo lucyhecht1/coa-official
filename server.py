@@ -6,16 +6,27 @@ import sqlite3
 import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+
 app = Flask(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
 
+# Define Google Sheets API scope
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+
 # Retrieve credentials from environment variable
 google_credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+
+if not google_credentials_json:
+    raise ValueError("GOOGLE_CREDENTIALS_JSON environment variable not set!")
+
 creds_dict = json.loads(google_credentials_json)  # Convert JSON string to dictionary
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
+
+# Open your Google Sheet
+sheet = client.open("Yavneh-Arts-RSVP").sheet1
 
 def create_db():
     conn = sqlite3.connect('rsvp.db')
@@ -44,7 +55,7 @@ def homepage():
 def about():
     return render_template('about.html')
 
-# Gallery route
+# Gallery routes
 @app.route('/gallery')
 def gallery():
     return render_template('gallery.html')
@@ -72,9 +83,12 @@ def submit_rsvp():
     lastName = request.form.get('lastName')
     email = request.form.get('email')
 
+    if not firstName or not lastName or not email:
+        return jsonify({"error": "All fields are required!"}), 400
+
     sheet.append_row([firstName, lastName, email])  # Add RSVP to Google Sheet
     
-    return jsonify({"message": "RSVP Submitted! You will receive a confirmation email shortly."})
+    return jsonify({"message": "Thank you! Your response has been submitted!"})
 
 @app.route('/export-rsvp', methods=['GET'])
 def export_rsvps():
@@ -89,11 +103,10 @@ def export_rsvps():
 def contact():
     return render_template('contact.html')
 
-# Register route
+# Chessed route
 @app.route('/chessed')
 def chessed():
     return render_template('chessed.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
