@@ -411,8 +411,104 @@ section p {
 
 /***************************/
 /******** CHESSED **********/
-.chessed {
+.chessed-container {
     font-family: 'Georgia', serif; 
+    background: white; 
+    border-radius: 15px;
+    color: #001f3f;
+    padding: 40px;
+    max-width: 900px;
+    width: 75%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #C0C0C0;
+}
+.chessed-header {
+    position: relative;
+    display: inline-block;
+}
+
+/* NATAL text with static metallic gradient */
+.chessed-header h2 {
+    font-size: 3.0rem;
+    text-transform: uppercase;
+    margin-bottom: -10px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background: #001f3f;
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Sparkling stars effect outside the text */
+.chessed-header .sparkle {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #D3D3D3;
+    opacity: 0;
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+/* Randomized sparkle positions */
+.chessed-header .sparkle-1 {
+    top: -15px;
+    left: 5%;
+    animation-delay: 0.3s;
+}
+.chessed-header .sparkle-2 {
+    top: -10px;
+    right: 10%;
+    animation-delay: 1s;
+}
+.chessed-header .sparkle-3 {
+    bottom: -10px;
+    left: 30%;
+    animation-delay: 1.5s;
+}
+.chessed-header .sparkle-4 {
+    bottom: -15px;
+    right: 40%;
+    animation-delay: 2s;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+.chessed-divider {
+    border-top: 2px solid #C0C0C0;
+    width: 60%;
+    margin: 20px auto;
+}
+.chessed-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1rem;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
+}
+.chessed-list li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 25px;
+}
+.chessed-list li::before {
+    content: "✔";
+    color: #C0C0C0;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
 }
 
 /***************************/
