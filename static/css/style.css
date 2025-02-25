@@ -510,6 +510,19 @@ section p {
     position: absolute;
     left: 0;
 }
+.chessed-btn {
+    font-family: 'Georgia', serif;
+    background: #E8E8E8;
+    color: #001f3f;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+.chessed-btn:hover {
+    background: #D0D0D0;
+    cursor: pointer;
+}
 
 /***************************/
 /******** REGISTER *********/
