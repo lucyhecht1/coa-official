@@ -608,7 +608,8 @@ section p {
     font-size: 2.5rem;
     font-weight: bold;
     color: #001f3f; /* Navy blue */
-    margin: 30px;
+    margin-top: 60px;
+    margin-bottom: -2px;
     text-align: center;
 }
 #rsvpForm {

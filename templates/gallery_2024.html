@@ -13,9 +13,9 @@
         <div class="row">
             <!-- Gallery Images -->
             {% for i in range(1, 181) %}
-            {% if i not in [40, 67, 68, 69] %} <!-- Skip missing image indices -->
+            {% if i not in [40, 67, 68, 69, 147] %} <!-- Skip missing image indices -->
             <div class="col-md-4 col-sm-6 mb-4">
-                <img src="{{ url_for('static', filename='images/gallery2024/image' ~ i ~ '.JPG') }}" 
+                <img src="{{ url_for('static', filename='images/gallery2024_compressed/image' ~ i ~ '.webp') }}" 
                      alt="Gallery Image {{ i }}" 
                      class="img-fluid gallery-image" 
                      onclick="openModal({{ i }})">
@@ -40,7 +40,7 @@
 
 <script>
     let currentIndex = 0; // Track the current image index
-    const skipIndices = [40, 67, 68, 69]; // Indices to skip
+    const skipIndices = [40, 67, 68, 69, 147]; // Indices to skip
     const totalImages = 180; // Total number of images
 
     // Open modal and display selected image
@@ -57,7 +57,7 @@
 
         currentIndex = index; // Update current image index
         modal.style.display = 'block';
-        modalImg.src = `/static/images/gallery2024/image${index}.JPG`;
+        modalImg.src = `/static/images/gallery2024_compressed/image${index}.webp`;
         downloadBtn.href = modalImg.src; // Set download button link
 
         // Add "modal-open" class to body to disable hover effects
@@ -95,7 +95,7 @@
                 currentIndex = 1;
             }
         }
-        modalImg.src = `/static/images/gallery2024/image${currentIndex}.JPG`;
+        modalImg.src = `/static/images/gallery2024_compressed/image${currentIndex}.webp`;
         downloadBtn.href = modalImg.src; // Update download button link
     }
 
