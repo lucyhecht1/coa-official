@@ -6,8 +6,11 @@ import sqlite3
 import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from flask import Flask, render_template
+from flask_compress import Compress
 
 app = Flask(__name__)
+Compress(app)  # Enable compression
 
 # Load environment variables from .env file
 load_dotenv()
@@ -117,4 +120,5 @@ def chessed():
     return render_template('chessed.html')
 
 if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))  # Render requires this
     app.run(debug=True)

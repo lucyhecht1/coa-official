@@ -1,7 +1,9 @@
 Flask
+Flask-Compress
 Gunicorn
 Jinja2
 pandas
 gspread
 oauth2client
 python-dotenv
+Pillow
