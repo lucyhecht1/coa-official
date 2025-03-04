@@ -14,7 +14,7 @@
             <!-- Gallery Images -->
             {% for i in range(1, 201) %}
             <div class="col-md-4 col-sm-6 mb-4">
-                <img src="{{ url_for('static', filename='images/gallery2025/20250301 Kraft Center Yavneh Celebration of the Arts-' ~ i ~ '.webp') }}"
+                <img src="{{ url_for('static', filename='images/gallery2025_compressed/20250301 Kraft Center Yavneh Celebration of the Arts-' ~ i ~ '.webp') }}"
                     alt="Gallery Image {{ i }}" 
                     class="img-fluid gallery-image" 
                     onclick="openModal({{ i }})">
@@ -48,7 +48,7 @@
 
         currentIndex = index; // Update current image index
         modal.style.display = 'block';
-        modalImg.src = `/static/images/gallery2025/20250301 Kraft Center Yavneh Celebration of the Arts-${index}.webp`;
+        modalImg.src = `/static/images/gallery2025_compressed/20250301 Kraft Center Yavneh Celebration of the Arts-${index}.webp`;
         downloadBtn.href = modalImg.src; // Set download button link
 
         // Add "modal-open" class to body to disable hover effects
@@ -75,7 +75,7 @@
             currentIndex = 1;
         }
 
-        modalImg.src = `/static/images/gallery2025/20250301 Kraft Center Yavneh Celebration of the Arts-${currentIndex}.webp`;
+        modalImg.src = `/static/images/gallery2025_compressed/20250301 Kraft Center Yavneh Celebration of the Arts-${currentIndex}.webp`;
         downloadBtn.href = modalImg.src; // Update download button link
     }
 
